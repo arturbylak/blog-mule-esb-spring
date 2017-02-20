@@ -17,6 +17,12 @@
     <properties>
         <java.version>1.8</java.version>
         <mule.esb.extras.version>3.8.1</mule.esb.extras.version>
+        <mule.esb.core.version>3.8.1</mule.esb.core.version>
+
+        <jersey.version>1.4</jersey.version>
+        <mule.version>3.1.0</mule.version>
+        <spring.version>3.0.5.RELEASE</spring.version>
+        <slf4j.version>1.6.1</slf4j.version>
     </properties>
 
     <dependencies>
@@ -28,6 +34,21 @@
             <groupId>org.mule.modules</groupId>
             <artifactId>mule-module-spring-extras</artifactId>
             <version>${mule.esb.extras.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mule</groupId>
+            <artifactId>mule-core</artifactId>
+            <version>${mule.esb.core.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mule.transports</groupId>
+            <artifactId>mule-transport-vm</artifactId>
+            <version>${mule.esb.core.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mule.transports</groupId>
+            <artifactId>mule-transport-file</artifactId>
+            <version>${mule.esb.core.version}</version>
         </dependency>
     </dependencies>
 
