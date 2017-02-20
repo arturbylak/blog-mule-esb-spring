@@ -16,12 +16,18 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <mule.esb.extras.version>3.8.1</mule.esb.extras.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.mule.modules</groupId>
+            <artifactId>mule-module-spring-extras</artifactId>
+            <version>${mule.esb.extras.version}</version>
         </dependency>
     </dependencies>
 
