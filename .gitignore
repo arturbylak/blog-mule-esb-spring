@@ -1,4 +1,2 @@
 /.idea
-/target/classes/com/bylak/mule/esb/spring/*.class
-/target/*.jar
 /target
