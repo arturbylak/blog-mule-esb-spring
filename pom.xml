@@ -8,57 +8,48 @@
     <artifactId>com.bylak.mule.esb.spring</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.5.1.RELEASE</version>
-    </parent>
-
-    <properties>
-        <java.version>1.8</java.version>
-        <mule.esb.extras.version>3.8.1</mule.esb.extras.version>
-        <mule.esb.core.version>3.8.1</mule.esb.core.version>
-
-        <jersey.version>1.4</jersey.version>
-        <mule.version>3.1.0</mule.version>
-        <spring.version>3.0.5.RELEASE</spring.version>
-        <slf4j.version>1.6.1</slf4j.version>
-    </properties>
-
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.mule.modules</groupId>
-            <artifactId>mule-module-spring-extras</artifactId>
-            <version>${mule.esb.extras.version}</version>
-        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.mule/mule-core -->
         <dependency>
             <groupId>org.mule</groupId>
             <artifactId>mule-core</artifactId>
-            <version>${mule.esb.core.version}</version>
+            <version>3.8.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.12</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.12</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>4.1.5.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mule.modules</groupId>
+            <artifactId>mule-module-spring-config</artifactId>
+            <version>3.8.1</version>
         </dependency>
         <dependency>
             <groupId>org.mule.transports</groupId>
             <artifactId>mule-transport-vm</artifactId>
-            <version>${mule.esb.core.version}</version>
+            <version>3.8.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mule.modules</groupId>
+            <artifactId>mule-module-client</artifactId>
+            <version>3.8.1</version>
         </dependency>
         <dependency>
             <groupId>org.mule.transports</groupId>
-            <artifactId>mule-transport-file</artifactId>
-            <version>${mule.esb.core.version}</version>
+            <artifactId>mule-transport-http</artifactId>
+            <version>3.8.1</version>
         </dependency>
     </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>
