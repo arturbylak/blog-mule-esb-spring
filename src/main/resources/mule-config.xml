@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:vm="http://www.mulesoft.org/schema/mule/vm"
+      xmlns:spring="http://www.springframework.org/schema/beans"
+      xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+       http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/3.8/mule-vm.xsd
+       http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/3.8/mule.xsd
+       ">
+
+    <flow name="attachmentsFlow">
+        <vm:inbound-endpoint exchange-pattern="request-response" path="test">
+        </vm:inbound-endpoint>
+        <logger message="Works" level="INFO"/>
+    </flow>
+
+    <flow name="flow1">
+        <vm:inbound-endpoint path="noResponse.msg"
+                             exchange-pattern="request-response">
+            <custom-processor class="com.bylak.mule.esb.spring.appender.StringAppender">
+                <spring:property name="suffix" value="A" />
+            </custom-processor>
+        </vm:inbound-endpoint>
+        <vm:outbound-endpoint path="out.msg" />
+    </flow>
+    <flow name="flow2">
+        <vm:inbound-endpoint path="response.msg"
+                             exchange-pattern="request-response">
+            <custom-processor class="com.bylak.mule.esb.spring.appender.StringAppender">
+                <spring:property name="suffix" value="A" />
+            </custom-processor>
+            <response>
+                <custom-processor class="com.bylak.mule.esb.spring.appender.StringAppender">
+                    <spring:property name="suffix" value="B" />
+                </custom-processor>
+            </response>
+        </vm:inbound-endpoint>
+        <response>
+            <custom-processor class="com.bylak.mule.esb.spring.appender.StringAppender">
+                <spring:property name="suffix" value="C" />
+            </custom-processor>
+        </response>
+    </flow>
+    <flow name="flow3">
+        <vm:inbound-endpoint path="multiResponse.msg"
+                             exchange-pattern="request-response">
+            <custom-processor class="com.bylak.mule.esb.spring.appender.StringAppender">
+                <spring:property name="suffix" value="A" />
+            </custom-processor>
+            <response>
+                <custom-processor class="com.bylak.mule.esb.spring.appender.StringAppender">
+                    <spring:property name="suffix" value="B" />
+                </custom-processor>
+            </response>
+        </vm:inbound-endpoint>
+        <custom-processor class="com.bylak.mule.esb.spring.appender.StringAppender">
+            <spring:property name="suffix" value="C" />
+        </custom-processor>
+        <response>
+            <custom-processor class="com.bylak.mule.esb.spring.appender.StringAppender">
+                <spring:property name="suffix" value="D" />
+            </custom-processor>
+        </response>
+        <vm:outbound-endpoint path="out.msg"
+                              exchange-pattern="request-response">
+            <custom-processor class="com.bylak.mule.esb.spring.appender.StringAppender">
+                <spring:property name="suffix" value="E" />
+            </custom-processor>
+            <response>
+                <custom-processor class="com.bylak.mule.esb.spring.appender.StringAppender">
+                    <spring:property name="suffix" value="F" />
+                </custom-processor>
+            </response>
+        </vm:outbound-endpoint>
+        <custom-processor class="com.bylak.mule.esb.spring.appender.StringAppender">
+            <spring:property name="suffix" value="H" />
+        </custom-processor>
+        <response>
+            <custom-processor class="com.bylak.mule.esb.spring.appender.StringAppender">
+                <spring:property name="suffix" value="I" />
+            </custom-processor>
+        </response>
+        <custom-processor class="com.bylak.mule.esb.spring.appender.StringAppender">
+            <spring:property name="suffix" value="J" />
+        </custom-processor>
+    </flow>
+    <flow name="flow4">
+        <vm:inbound-endpoint path="out.msg"
+                             exchange-pattern="request-response">
+            <custom-processor class="com.bylak.mule.esb.spring.appender.StringAppender">
+                <spring:property name="suffix" value="K" />
+            </custom-processor>
+            <response>
+                <custom-processor class="com.bylak.mule.esb.spring.appender.StringAppender">
+                    <spring:property name="suffix" value="L" />
+                </custom-processor>
+            </response>
+        </vm:inbound-endpoint>
+        <response>
+            <custom-processor class="com.bylak.mule.esb.spring.appender.StringAppender">
+                <spring:property name="suffix" value="M" />
+            </custom-processor>
+        </response>
+    </flow>
+</mule>
