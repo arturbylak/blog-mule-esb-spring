@@ -17,15 +17,18 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class MuleConfiguration {
 
+    private static final String WORKING_DIRECTORY = "/esb/mule";
+    private static final String ID = "muleexample";
+    private static final String MULE_CONFIG_FILE = "mule-config.xml";
+
     @Bean
     @Autowired
     public MuleContext muleContext(AnnotationConfigApplicationContext applicationContext) throws MuleException {
         DefaultMuleConfiguration defaultMuleConfiguration = new DefaultMuleConfiguration();
-        defaultMuleConfiguration.setId("muleexample");
-        defaultMuleConfiguration.setWorkingDirectory("/esb/mule");
+        defaultMuleConfiguration.setId(ID);
+        defaultMuleConfiguration.setWorkingDirectory(WORKING_DIRECTORY);
 
-        SpringXmlConfigurationBuilder configBuilder = new SpringXmlConfigurationBuilder(
-                "mule-config.xml");
+        SpringXmlConfigurationBuilder configBuilder = new SpringXmlConfigurationBuilder(MULE_CONFIG_FILE);
         configBuilder.setParentContext(applicationContext);
         MuleContextBuilder muleContextBuilder = new DefaultMuleContextBuilder();
         muleContextBuilder.setMuleConfiguration(defaultMuleConfiguration);

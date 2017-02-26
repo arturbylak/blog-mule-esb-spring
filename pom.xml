@@ -7,6 +7,12 @@
     <groupId>com.bylak.mule.esb.spring</groupId>
     <artifactId>com.bylak.mule.esb.spring</artifactId>
     <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <mule.version>3.8.1</mule.version>
+        <spring.version>4.1.5.RELEASE</spring.version>
+    </properties>
+
     <build>
         <plugins>
             <plugin>
@@ -21,41 +27,40 @@
     </build>
 
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/org.mule/mule-core -->
         <dependency>
             <groupId>org.mule</groupId>
             <artifactId>mule-core</artifactId>
-            <version>3.8.1</version>
+            <version>${mule.version}</version>
         </dependency>
         <dependency>
             <groupId>org.mule.modules</groupId>
             <artifactId>mule-module-spring-extras</artifactId>
-            <version>3.8.1</version>
-        </dependency>
-         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-            <version>4.1.5.RELEASE</version>
+            <version>${mule.version}</version>
         </dependency>
         <dependency>
             <groupId>org.mule.modules</groupId>
             <artifactId>mule-module-spring-config</artifactId>
-            <version>3.8.1</version>
+            <version>${mule.version}</version>
         </dependency>
         <dependency>
             <groupId>org.mule.transports</groupId>
             <artifactId>mule-transport-vm</artifactId>
-            <version>3.8.1</version>
+            <version>${mule.version}</version>
         </dependency>
         <dependency>
             <groupId>org.mule.modules</groupId>
             <artifactId>mule-module-client</artifactId>
-            <version>3.8.1</version>
+            <version>${mule.version}</version>
         </dependency>
         <dependency>
             <groupId>org.mule.transports</groupId>
             <artifactId>mule-transport-http</artifactId>
-            <version>3.8.1</version>
+            <version>${mule.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring.version}</version>
         </dependency>
     </dependencies>
 </project>
